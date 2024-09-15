@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*.js": "eslint --fix"
   },
   "keywords": [],
   "author": "",
