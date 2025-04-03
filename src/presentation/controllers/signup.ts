@@ -32,10 +32,7 @@ export class SignUpController implements Controller {
             }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
-            return {
-                statusCode: 500,
-                body: serverError()
-            }
+            return serverError()
         }
     }
 }
