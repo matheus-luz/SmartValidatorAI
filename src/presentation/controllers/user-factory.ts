@@ -1,10 +1,9 @@
-import { badRequest } from './../helpers/http-helpers';
+import { badRequest, serverError } from './../helpers/http-helpers';
 import { HttpRequest, HttpResponse } from '../protocols/http'
 import { MissingParamError } from '../errors/missing-param-erros'
 import { Controller } from '../protocols/controller';
 import { EmailValidator } from '../protocols/email-validator';
 import { InvalidParamError } from '../errors/invalid-param-error';
-import { ServerError } from '../errors/server-error';
 
 export class UserFactoryController implements Controller {
     private readonly emailValidator: EmailValidator
@@ -32,10 +31,7 @@ export class UserFactoryController implements Controller {
             }
         } catch (error) {
             console.error(error);
-            return {
-                statusCode: 500,
-                body: new ServerError()
-            }
+            return serverError()
         }
     }
 }
